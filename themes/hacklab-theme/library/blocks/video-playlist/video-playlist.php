@@ -12,7 +12,7 @@ function embed($video){
 	$video_title   = extract_vid_title( $video );
 	$channel_title = extract_vid_channel_title( $video );
 
-	$iframe = "<div class=\"embed-template-block\">
+	$iframe = "<div class=\"video-gallery-block__embed\">
 				<p><strong>$video_title</strong></p>
 				<p>$channel_title</p>
 				<figure class=\"wp-block-embed is-type-video is-provider-youtube\">
@@ -52,7 +52,7 @@ function thumbnail($video){
 }
 
 function block_header($title){
-    return "<div class=\"video-gallery-block-title\">
+    return "<div class=\"video-gallery-block__title\">
                     <h2>". $title ."</h2>
                     <div class=\"title-line\"></div>
             </div>";
@@ -158,7 +158,7 @@ function render_video_playlist_callback( $attributes = [] ) {
 
     $videos = $result->items;
 
-    $embeds .= "<div class='video-gallery-block video-" . $style . "'>";
+    $embeds .= "<div class='video-gallery-block video-gallery--" . $style . "'>";
     $embeds .=  isset( $attributes['title'] ) ? block_header( $attributes['title'] ) : '';
     $embeds .= "<div class='video-gallery-wrapper'>";
 

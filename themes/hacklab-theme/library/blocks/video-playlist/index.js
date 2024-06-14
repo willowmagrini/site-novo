@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", function () {
 function render_gallery() {
     console.log('oi');
     document.querySelectorAll('.video-gallery-wrapper').forEach( videoGallery => {
-        let videoItens = videoGallery.querySelectorAll('.embed-template-block');
+        let videoItens = videoGallery.querySelectorAll('.video-gallery-block__embed');
 
         if(videoItens.length > 1) {
             let videoCopyPolicyFix = videoItens[0].cloneNode(true);
@@ -53,7 +53,7 @@ function render_gallery() {
             videoGallery.insertBefore(excerptLimiter, videoItens[0].nextSibling);
         }
 
-        videoItens = videoGallery.querySelectorAll('.embed-template-block');
+        videoItens = videoGallery.querySelectorAll('.video-gallery-block__embed');
 
         if(videoItens.length > 1) {
             const groupedItens = [...videoItens];
@@ -74,8 +74,8 @@ function render_gallery() {
 
                 clickableVideoArea.onclick = function(e) {
                     if(lastClicked != this) {
-                        this.closest('.video-gallery-wrapper').querySelector('.embed-template-block').remove();
-                        this.closest('.video-gallery-wrapper').insertBefore(this.querySelector('.embed-template-block').cloneNode(true), gridScrollLimiter);
+                        this.closest('.video-gallery-wrapper').querySelector('.video-gallery-block__embed').remove();
+                        this.closest('.video-gallery-wrapper').insertBefore(this.querySelector('.video-gallery-block__embed').cloneNode(true), gridScrollLimiter);
                     }
 
                     lastClicked = this;
