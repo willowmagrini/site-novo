@@ -166,3 +166,13 @@ O conteúdo de `wp-content` está excluído do versionamento por padrão. Para a
 ## Traduções
 
 Quando utilizar o comando `wp i18n make-json languages/` para gerar as traduções de arquivos `.js` e as traduções não funcionarem, uma das possíveis soluções pode ser renomear o arquivo gerado de `{locale}-{hash}.json` para `{domain}-{locale}-{script-handle}.json`.
+
+## Github Workflow e plugin git-updater (v12.4.0)
+no arquivo .github/workflows/main.yaml atualize:
+- o nome do tema na variável THEME_NAME 
+- a variável CURL_URL com a URL do ambiente a ser atualizado ( o plugin git-updater deve estar instalado e o tema adicionado na aba additions)
+- a variével DEPLOY com um número diferente de 0 se desejar atualizações automáticas.
+- a pasta do tema, o nome do repositório e a slug configurada na aba additions do plugin devem ser o mesmo
+- para atualizar o tema no ambiente o nome da tag deve ser igual ao do style.css
+- o arquivo style.css da raíz do repositório é um link simbolico e deve ser refeito quando o nome da pasta é alterado chamando o comando `ln -s themes/novo_nome/style.css style.css` a partir da raíz.
+obs. ao mudar o nome da pasta do tema lembre-se de fazer uma substituição em massa de hacklab-theme para o novo nome nos arquivos.
