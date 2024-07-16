@@ -179,6 +179,7 @@ Para que a estrutura dos arquivos do repositório siga esse padrão você deve e
 - altera a pasta do tema
 - substitui em massa a string hacklab-theme pelo novo nome
 - cria o link simbolico entre /themes/novo-nome/style.css e /style.css
+- altera a versão do tema para 0.1
 
 
 ### outras alterações:
