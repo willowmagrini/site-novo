@@ -168,11 +168,22 @@ O conteúdo de `wp-content` está excluído do versionamento por padrão. Para a
 Quando utilizar o comando `wp i18n make-json languages/` para gerar as traduções de arquivos `.js` e as traduções não funcionarem, uma das possíveis soluções pode ser renomear o arquivo gerado de `{locale}-{hash}.json` para `{domain}-{locale}-{script-handle}.json`.
 
 ## Github Workflow e plugin git-updater (v12.4.0)
-no arquivo .github/workflows/main.yaml atualize:
-- o nome do tema na variável THEME_NAME 
-- a variável CURL_URL com a URL do ambiente a ser atualizado ( o plugin git-updater deve estar instalado e o tema adicionado na aba additions)
-- a variével DEPLOY com um número diferente de 0 se desejar atualizações automáticas.
-- a pasta do tema, o nome do repositório e a slug configurada na aba additions do plugin devem ser o mesmo
-- para atualizar o tema no ambiente o nome da tag deve ser igual ao do style.css
-- o arquivo style.css da raíz do repositório é um link simbolico e deve ser refeito quando o nome da pasta é alterado chamando o comando `ln -s themes/novo_nome/style.css style.css` a partir da raíz.
-obs. ao mudar o nome da pasta do tema lembre-se de fazer uma substituição em massa de hacklab-theme para o novo nome nos arquivos.
+Para que o plugin funcione corretamente devemos ter o nome da pasta do tema, o nome do repositório no github e o a slug configurada no plugin sendo a mesma string. Por exemplo:
+pasta do tema no repo: themes/novo-site
+endereço do repo: github.com/hacklabr/novo-site
+Slug configurada no plugin: novo-site.
+
+Além disso precisamos ter um link simbolico na raiz do repo apontando para o arquivo style.css dentro da pasta do tema.
+
+Para que a estrutura dos arquivos do repositório siga esse padrão você deve executar, logo após clonar, o script dev-scripts/cria-tema.sh que faz as seguintes alterações:
+- altera a pasta do tema
+- substitui em massa a string hacklab-theme pelo novo nome
+- cria o link simbolico entre /themes/novo-nome/style.css e /style.css
+
+
+### outras alterações:
+- a variável CURL_URL no arquivo .github/workflows/main.yml com a URL do ambiente a ser atualizado (o plugin git-updater deve estar instalado e o tema adicionado na aba additions)
+- a variável DEPLOY no arquivo .github/workflows/main.yml com um número diferente de 0 se desejar atualizações automáticas.
+
+### observações importantes: 
+- para atualizar o tema no ambiente usando o plugin a versão na tag do repositório deve ser igual à versão do tema no style.css

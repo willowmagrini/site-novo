@@ -14,6 +14,6 @@ mv themes/hacklab-theme themes/$string_nova
 diretorio=$(pwd)
 
 # Substitui as ocorrências da string antiga pela nova em todos os arquivos do diretório atual e subdiretórios
-find "$diretorio" -type f ! -path \".git\" -prune -name cria-tema.sh -exec sed -i "s/hacklab-theme/$string_nova/g" {} +
+find "$diretorio" -type f  -path \".git\" -prune ! -name cria-tema.sh -exec sed -i "s/hacklab-theme/$string_nova/g" {} +
 rm style.css
 ln -s themes/$string_nova/style.css style.css
