@@ -169,9 +169,9 @@ Quando utilizar o comando `wp i18n make-json languages/` para gerar as traduçõ
 
 ## Github Workflow e plugin git-updater (v12.4.0)
 Para que o plugin funcione corretamente devemos ter o nome da pasta do tema, o nome do repositório no github e o a slug configurada no plugin sendo a mesma string. Por exemplo:
-pasta do tema no repo: themes/novo-site
-endereço do repo: github.com/hacklabr/novo-site
-Slug configurada no plugin: novo-site.
+pasta do tema no repo: themes/novo-nome
+endereço do repo: github.com/hacklabr/novo-nome
+Slug configurada no plugin: novo-nome
 
 Além disso precisamos ter um link simbolico na raiz do repo apontando para o arquivo style.css dentro da pasta do tema.
 
