@@ -1,0 +1,4 @@
+node_modules
+plugins/*
+zips/*
+themes/novo-site/node_modules
